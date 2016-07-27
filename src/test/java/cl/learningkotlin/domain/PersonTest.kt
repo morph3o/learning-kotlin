@@ -21,4 +21,13 @@ class PersonTest {
         Assert.assertThat(person.firstName, IsEqual.equalTo("Pedro"))
         Assert.assertThat(person.lastName, IsEqual.equalTo("Perez"))
     }
+    @Test
+    fun itShouldInitializePersonUsingThirdConstructor() {
+        val person_address: Address = Address()
+        val person = Person("test@test.com", "Pedro", "Perez", person_address)
+        Assert.assertThat(person.email, IsEqual.equalTo("test@test.com"))
+        Assert.assertThat(person.firstName, IsEqual.equalTo("Pedro"))
+        Assert.assertThat(person.lastName, IsEqual.equalTo("Perez"))
+        Assert.assertThat(person.address.get(index = 0), IsEqual.equalTo(person_address))
+    }
 }
